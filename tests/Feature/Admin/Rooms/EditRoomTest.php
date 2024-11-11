@@ -39,4 +39,22 @@ class EditRoomTest extends TestCase
             'description' => 'Test Description Updated',
         ]);
     }
+
+    public function test_name_is_required(): void
+    {
+        // Given
+        $user = User::factory([
+            'role' => 'admin',
+        ])->create();
+
+        $room = Room::factory()->create();
+
+        // When
+        $response = $this->actingAs($user)->put(route('admin.rooms.update', $room), [
+            'description' => 'Test Description',
+        ]);
+
+        // Then
+        $response->assertSessionHasErrors('name');
+    }
 }

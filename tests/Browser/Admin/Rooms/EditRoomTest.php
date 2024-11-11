@@ -34,4 +34,22 @@ class EditRoomTest extends DuskTestCase
                 ->assertSee(__('Room updated successfully.'));
         });
     }
+
+    public function test_name_is_required(): void
+    {
+        $user = User::factory([
+            'role' => 'admin',
+        ])->create();
+
+        $room = Room::factory()->create();
+
+        $this->browse(function (Browser $browser) use ($user, $room) {
+            $browser->loginAs($user)
+                ->visitRoute('admin.rooms.edit', $room)
+                ->waitForText(__('Edit Room'))
+                ->type('#name', '')
+                ->press('#update-room-button')
+                ->waitForText(__('The name field is required.'));
+        });
+    }
 }

@@ -44,7 +44,7 @@
 											<form action="{{ route('admin.rooms.destroy', $room) }}" method="POST">
 												@csrf
 												@method('DELETE')
-												<button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+												<button id="delete-button-{{ $room->id }}" class="btn btn-danger">{{ __('Delete') }}</button>
 											</form>
 										</td>
 									</tr>

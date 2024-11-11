@@ -28,4 +28,19 @@ class CreateRoomTest extends DuskTestCase
                 ->assertSee(__('Room created successfully.'));
         });
     }
+
+    public function test_name_is_required(): void
+    {
+        $user = User::factory([
+            'role' => 'admin',
+        ])->create();
+
+        $this->browse(function (Browser $browser) use ($user) {
+            $browser->loginAs($user)
+                ->visitRoute('admin.rooms.create')
+                ->waitForText(__('Create Room'))
+                ->press('#create-room-button')
+                ->waitForText(__('The name field is required.'));
+        });
+    }
 }
