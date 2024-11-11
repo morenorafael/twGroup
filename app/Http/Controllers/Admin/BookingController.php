@@ -15,21 +15,6 @@ class BookingController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(Booking $booking)
-    {
-        //
-    }
-
     public function edit(Booking $booking)
     {
         return view('admin.bookings.edit', [
@@ -44,10 +29,5 @@ class BookingController extends Controller
         ]);
 
         return redirect()->route('admin.bookings.index')->with('success', 'Booking updated successfully.');
-    }
-
-    public function destroy(Booking $booking)
-    {
-        //
     }
 }

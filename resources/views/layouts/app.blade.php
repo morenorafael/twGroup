@@ -41,11 +41,11 @@
                     <span>{{ __('Rooms') }}</span></a>
             </li>
 
-            <!-- Nav Item - Bookigs -->
+            <!-- Nav Item - Bookings -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.bookings.index') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>{{ __('Bookigs') }}</span></a>
+                    <span>{{ __('Bookings') }}</span></a>
             </li>
 
             <!-- Divider -->
