@@ -13,11 +13,11 @@
 				<div class="card-header">
 					<div class="row">
 						<div class="col-sm-4 col-md-4">
-							<h3 class="card-title">Rooms</h3>
+							<h3 class="card-title">{{ __('Rooms') }}</h3>
 						</div>
 						<div class="col-sm-8 col-md-8">
 							<div class="float-right">
-								<a href="{{ route('admin.rooms.create') }}" class="btn btn-primary">Create Room</a>
+								<a href="{{ route('admin.rooms.create') }}" class="btn btn-primary">{{ __('Create Room') }}</a>
 							</div>
 						</div>
 					</div>
@@ -28,9 +28,9 @@
 						 <table class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Actions</th>
+									<th>{{ __('Name') }}</th>
+									<th>{{ __('Description') }}</th>
+									<th>{{ __('Actions') }}</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -39,12 +39,12 @@
 										<td>{{ $room->name }}</td>
 										<td>{{ $room->description }}</td>
 										<td>
-											<a href="{{ route('admin.rooms.show', $room) }}" class="btn btn-primary">View</a>
-											<a href="{{ route('admin.rooms.edit', $room) }}" class="btn btn-primary">Edit</a>
+											<a href="{{ route('admin.rooms.show', $room) }}" class="btn btn-primary">{{ __('Show') }}</a>
+											<a href="{{ route('admin.rooms.edit', $room) }}" class="btn btn-primary">{{ __('Edit') }}</a>
 											<form action="{{ route('admin.rooms.destroy', $room) }}" method="POST">
 												@csrf
 												@method('DELETE')
-												<button type="submit" class="btn btn-danger">Delete</button>
+												<button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
 											</form>
 										</td>
 									</tr>
@@ -52,7 +52,7 @@
 							</tbody>
 						</table>
 					@else
-						<p>No rooms found.</p>  
+						<p>{{ __('No rooms found.') }}</p>
 					@endif
 				</div>
 			</div>

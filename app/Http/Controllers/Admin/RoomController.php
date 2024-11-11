@@ -36,12 +36,15 @@ class RoomController extends Controller
 
     public function edit(Room $room)
     {
-        //
+        return view('admin.rooms.edit', compact('room'));
     }
 
     public function update(UpdateRoomRequest $request, Room $room)
     {
-        //
+        $room->update($request->validated());
+
+        return redirect()->route('admin.rooms.index')
+            ->with('success', __('Room updated successfully.'));
     }
 
     public function destroy(Room $room)
