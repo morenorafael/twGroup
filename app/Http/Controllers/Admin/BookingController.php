@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBookingRequest;
 use App\Models\Booking;
-use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
@@ -22,7 +22,7 @@ class BookingController extends Controller
         ]);
     }
 
-    public function update(Request $request, Booking $booking)
+    public function update(StoreBookingRequest $request, Booking $booking)
     {
         $booking->update([
             'status' => $request->input('status'),

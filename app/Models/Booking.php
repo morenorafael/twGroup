@@ -20,6 +20,13 @@ class Booking extends Model
 
     protected $with = ['room', 'user'];
 
+    protected function casts(): array
+    {
+        return [
+            'reserved_for' => 'datetime',
+        ];
+    }
+
     public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);
