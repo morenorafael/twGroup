@@ -1,13 +1,24 @@
 <x-app-layout>
     <!-- Page Heading -->
-	@if (request()->routeIs('admin.rooms.index'))
-		<h1 class="h3 mb-4 text-gray-800">{{ __('Bookigs') }}</h1>
-	@endif
+	<h1 class="h3 mb-4 text-gray-800">{{ __('Bookigs') }}</h1>
 
 	<!-- Room List -->
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
+				<div class="card-header">
+					<div class="row">
+						<div class="col-sm-4 col-md-4">
+							<h3 class="card-title">{{ __('Bookigs') }}</h3>
+						</div>
+						<div class="col-sm-8 col-md-8">
+							<div class="float-right">
+								<a href="{{ route('admin.rooms.create') }}" class="btn btn-primary">{{ __('Create Bookig') }}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				 <div class="card-body">
 					 @if (request()->routeIs('admin.bookings.index'))
 						 <table class="table table-bordered table-striped">
